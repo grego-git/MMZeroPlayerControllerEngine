@@ -7,5 +7,5 @@ I just finished playing Megaman Zero and was itchin to implement a player contro
 | :-------------: | :---------------------: | :----------------------------------------: |
 | Move Left/Right | A/D                     | D-Pad/Left Stick                           |
 | Jump            | Space/Left Mouse Button | Bottom Face Button (× Playstation; A XBOX) |
-| Dash            | Left Ctrl               | Left Face Button (□ Playstation; A XBOX)   |
+| Dash            | Left Ctrl               | Left Face Button (□ Playstation; X XBOX)   |
 | Pause           | Escape                  | Pause Button                               |
