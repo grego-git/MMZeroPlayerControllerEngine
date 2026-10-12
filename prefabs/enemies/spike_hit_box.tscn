@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfyuvw14kiaj6"]
+
+[ext_resource type="Script" uid="uid://cq20deulqkc5s" path="res://scripts/enemies/spikes/SpikesHitBox.cs" id="1_yf7xh"]
+
+[node name="SpikeHitBox" type="ShapeCast2D"]
+target_position = Vector2(0, 0)
+script = ExtResource("1_yf7xh")
+Damage = 1000

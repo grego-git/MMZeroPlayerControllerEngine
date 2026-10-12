@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyn05iv8fbftj"]
+
+[ext_resource type="Script" uid="uid://d0f0eyxq8elsy" path="res://scripts/player/PlayerCamera.cs" id="1_h6wuv"]
+
+[node name="PlayerCamera" type="Camera2D"]
+script = ExtResource("1_h6wuv")
+YDampFactor = 2.0

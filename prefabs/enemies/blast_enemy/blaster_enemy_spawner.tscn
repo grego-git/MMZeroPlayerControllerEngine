@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5epxg5mmc778"]
+
+[ext_resource type="Script" uid="uid://c3khpyvutlupk" path="res://scripts/enemies/blaster_enemy/BlasterEnemySpawner.cs" id="1_ta01h"]
+[ext_resource type="PackedScene" uid="uid://uexmdvnbi3s0" path="res://prefabs/enemies/blast_enemy/blaster_enemy.tscn" id="2_ofd14"]
+
+[node name="BlasterEnemySpawner" type="VisibleOnScreenNotifier2D"]
+rect = Rect2(-24, -32, 48, 64)
+script = ExtResource("1_ta01h")
+BlasterEnemyScene = ExtResource("2_ofd14")

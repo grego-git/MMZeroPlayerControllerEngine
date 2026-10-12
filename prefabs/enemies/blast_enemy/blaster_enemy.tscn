@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://uexmdvnbi3s0"]
+
+[ext_resource type="Script" uid="uid://bl8ee05ro3j4j" path="res://scripts/enemies/blaster_enemy/BlasterEnemy.cs" id="1_wpdir"]
+[ext_resource type="PackedScene" uid="uid://8ngllaykakvt" path="res://prefabs/enemies/blast_enemy/enemy_blast.tscn" id="2_cvgtu"]
+[ext_resource type="Script" uid="uid://fvkjfgkpueaf" path="res://scripts/enemies/EnemyHitBox.cs" id="3_wsdug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1fgr"]
+size = Vector2(32, 48)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uffmo"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlt11"]
+size = Vector2(32, 48)
+
+[node name="BlasterEnemy" type="ShapeCast2D"]
+shape = SubResource("RectangleShape2D_h1fgr")
+target_position = Vector2(0, 0)
+script = ExtResource("1_wpdir")
+BlastPackedScene = ExtResource("2_cvgtu")
+Health = 2
+Damage = 1
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+texture_repeat = 2
+texture = SubResource("PlaceholderTexture2D_uffmo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-16, -24, 32, 48)
+
+[node name="BlasterEnemyHitBox" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
+collision_layer = 8
+script = ExtResource("3_wsdug")
+AttachedEnemy = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlasterEnemyHitBox"]
+shape = SubResource("RectangleShape2D_vlt11")
