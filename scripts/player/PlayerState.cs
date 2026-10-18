@@ -65,7 +65,7 @@ public class PlayerState
             return;
         }
 
-        FacingRight = xInput > 0.0f;
+        FacingRight = IsHit() ? (_playerController.Velocity.X < 0.0f) : (xInput > 0.0f);
     }
 
     public void SetLeftWallCollision(bool colliding)

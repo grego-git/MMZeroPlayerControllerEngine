@@ -92,7 +92,7 @@ public partial class PlayerAttack : ShapeCast2D
                 Position = new Vector2(40.0f * xDir, -12.0f);
                 break;
             case AttackType.DOWNWARD:
-                Position = new Vector2(0.0f, 48.0f);
+                Position = new Vector2(0.0f, 32.0f);
                 break;
         }
     }

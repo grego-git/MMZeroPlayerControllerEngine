@@ -4,6 +4,7 @@ using System;
 public partial class StageManager : Node2D
 {
     public const float DEAD_DURATION = 1.0f;
+    public const float FRAME_DURATION = 1.0f / 60.0f;
 
     private const string SAVE_PATH = "user://best_time.save";
 
@@ -21,7 +22,9 @@ public partial class StageManager : Node2D
     public bool FoundBestTime { get; private set;}
     
     private bool _tickDeadTimer;
+    private bool _stopTimer;
     private float _deadTimer;
+    private float _freezeTimer;
 
     public override void _Ready()
     {
@@ -55,7 +58,8 @@ public partial class StageManager : Node2D
                     break;
                 }
 
-                GameTime += (float)delta;
+                CheckForFreeze((float)delta);
+                GameTime += _stopTimer ? 0.0f : (float)delta;
                 break;
             case State.LOST:
             case State.WON:
@@ -63,6 +67,8 @@ public partial class StageManager : Node2D
                 {
                     DrainDeadTimer((float)delta);
                 }
+                
+                CheckForFreeze((float)delta);
 
                 if (_deadTimer == 0.0f)
                 {
@@ -72,10 +78,34 @@ public partial class StageManager : Node2D
         }
     }
 
+    private void CheckForFreeze(float delta)
+    {
+        if (_freezeTimer > 0.0f)
+        {
+            _freezeTimer -= delta;
+            _freezeTimer = Mathf.Max(_freezeTimer, 0.0f);
+            
+            GetTree().Paused = true;
+            return;
+        }
+
+        GetTree().Paused = false;
+    }
+
     private void DrainDeadTimer(float delta)
     {
         _deadTimer -= delta;
         _deadTimer = Mathf.Max(_deadTimer, 0.0f);
+    }
+
+    public void FreezeFrame(int frames)
+    {
+        _freezeTimer = FRAME_DURATION * (float)frames;
+    }
+
+    public void StopTimer()
+    {
+        _stopTimer = true;
     }
 
     public void Lost()

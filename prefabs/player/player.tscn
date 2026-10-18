@@ -8,7 +8,7 @@
 size = Vector2(32, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7p1f"]
-size = Vector2(16, 24)
+size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdx4y"]
 size = Vector2(48, 48)
@@ -58,6 +58,7 @@ position = Vector2(0, -12)
 texture = SubResource("PlaceholderTexture2D_uffmo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_k7p1f")
 
 [node name="FloorRayCast" type="RayCast2D" parent="."]
